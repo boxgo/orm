@@ -1,4 +1,4 @@
-package gorm
+package orm
 
 import (
 	"context"
@@ -13,7 +13,7 @@ type (
 		URI  string `config:"uri" desc:"Connection uri"`
 
 		name string
-		db   *gorm.DB
+		*gorm.DB
 	}
 )
 
@@ -47,7 +47,7 @@ func (orm *GORM) ConfigDidLoad(context.Context) {
 		panic(err)
 	}
 
-	orm.db = db
+	orm.DB = db
 }
 
 // Serve ok
@@ -57,8 +57,8 @@ func (orm *GORM) Serve(ctx context.Context) error {
 
 // Shutdown stop
 func (orm *GORM) Shutdown(ctx context.Context) error {
-	if orm.db != nil {
-		return orm.db.Close()
+	if orm.DB != nil {
+		return orm.DB.Close()
 	}
 
 	return nil
