@@ -9,8 +9,8 @@ import (
 type (
 	// GORM connection
 	GORM struct {
-		Type string `config:"type" desc:"mysql, postgres, sqlite3, mssql"`
-		URI  string `config:"uri" desc:"Connection uri"`
+		Type string `config:"type" help:"mysql, postgres, sqlite3, mssql"`
+		URI  string `config:"uri" help:"Connection uri"`
 
 		name string
 		*gorm.DB
