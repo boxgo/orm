@@ -3,7 +3,7 @@ package orm
 import (
 	"context"
 
-	"github.com/go-gorm/gorm"
+	"github.com/jinzhu/gorm"
 )
 
 type (
